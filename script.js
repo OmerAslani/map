@@ -1,6 +1,24 @@
 import mapboxgl from "mapbox-gl"
 
-let token = "pk.eyJ1IjoieGtha2Fyb3QiLCJhIjoiY2t6c2UzcjBpMHF3cjJwbzk2MzJnc2w3dCJ9.RWwzRNo-cg9yk2LAnNHuzA"
+
+var baseUrl = "https://api.mapbox.com/geocoding/v5/mapbox.places/";
+var inputV = document.querySelector('#value');
+var inputGetV = inputV.value;
+var sub = document.querySelector("#sub");
+console.log(inputGetV);
+
+
+sub.addEventListener('click', console.log('hi'));
+
+// function my() {
+//     console.log(inputGetV);
+// }
+
+// function nesto() {
+//     sub.addEventListener('click', my)
+// }
+
+let token = "pk.eyJ1IjoieGtha2Fyb3QiLCJhIjoiY2t6c2UzcjBpMHF3cjJwbzk2MzJnc2w3dCJ9.RWwzRNo-cg9yk2LAnNHuzA";
 
 mapboxgl.accessToken = token;
 const map = new mapboxgl.Map({
@@ -23,6 +41,10 @@ const map = new mapboxgl.Map({
 
 console.log("hi");
 
-fetch("https://api.mapbox.com/geocoding/v5/mapbox.places/50.8468572,4.3608409.json?access_token=pk.eyJ1IjoieGtha2Fyb3QiLCJhIjoiY2t6c2UzcjBpMHF3cjJwbzk2MzJnc2w3dCJ9.RWwzRNo-cg9yk2LAnNHuzA")
+function click() {
+
+}
+
+fetch(`${baseUrl}50.8468572,4.3608409.json?access_token=${token}`)
     .then(response => response.json())
     .then(data => console.log(data.query));
